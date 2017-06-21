@@ -1,0 +1,12 @@
+@import "header.scss";
+
+body {
+	background:  #000;
+	color: white;
+		@include Header;
+}
+
+.App-title {
+	font-size: 25px;
+	margin: 5x;
+}
