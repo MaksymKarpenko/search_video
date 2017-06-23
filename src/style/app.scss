@@ -1,9 +1,10 @@
-@import "header.scss";
+@import "search_field.scss";
 
 body {
+	width: 100%;
 	background:  #000;
-	color: white;
-		@include Header;
+	color: black;
+		@include search_field;
 }
 
 .App-title {
