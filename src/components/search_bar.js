@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 
 class SearchBar extends Component {
 	constructor(props){
@@ -9,35 +8,29 @@ class SearchBar extends Component {
 			query: ''
 		}
 	}
-	search() {
-			console.log('this.state', this.state);
+	
+	render() {
+		return ( 
+		  <div className="search_field">
+			 <div className ="row">
+			 	<div className = "col-md-12">
+			 		<div className="input-group">
+    					<div className="input-group-btn">
+							<input className="form-control" 
+							  placeholder="search a video"
+							   value = {this.state.query}
+							    onChange={ event => this.setState({ query: event.target.value })} />
+								  <button type="button" className="btn btn-default">
+  									<span className="glyphicon glyphicon-search"></span>
+								  </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		 </div> 
+		)
 	}
-		render() {
-			return (
-			  <div className="search_field">
-			  	  <FormGroup>
-			  	  	  <InputGroup>
-			  	  		<FormControl
-			  	  		    type = "text"
-			  	  		    placeholder = "Search for a video" 
-			  	  		    value = {this.state.query}
-			  	  		    onChange = {event => {this.setState({query: event.target.value})}}
-			  	  		    onKeyPress = {event => {
-			  	  		    		if (event.key === 'Enter'){
-			  	  		    			this.search()
-			  	  		    		}
-			  	  		    	}
-			  	  		    }
-			  	  		/>
-			  	  		<InputGroup.Addon onClick={() => this.search()}>
-			  	  			<Glyphicon glyph="search"></Glyphicon>
-			  	  		</InputGroup.Addon>
-			  	  	</InputGroup>
-			  	</FormGroup>
-			  </div>
-			)
-		}
-		
+
 };
 
 export default SearchBar;

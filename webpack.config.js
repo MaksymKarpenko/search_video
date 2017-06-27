@@ -42,6 +42,7 @@ module.exports = {
 
 		new ExtractTextPlugin({
 			filename: 'app.css',
+			disable: false,
 			allChunks: true
 		})
 	]
