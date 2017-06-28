@@ -5,7 +5,7 @@ class SearchBar extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			query: ''
+			term: ''
 		}
 	}
 	
@@ -17,9 +17,9 @@ class SearchBar extends Component {
 			 		<div className="input-group">
     					<div className="input-group-btn">
 							<input className="form-control" 
-							  placeholder="search a video"
-							   value = {this.state.query}
-							    onChange={ event => this.setState({ query: event.target.value })} />
+							  placeholder= 'find a video'
+							   value = {this.state.term}
+							    onChange={ event => this.onInputChange(event.target.value)} />
 								  <button type="button" className="btn btn-default">
   									<span className="glyphicon glyphicon-search"></span>
 								  </button>
@@ -30,7 +30,10 @@ class SearchBar extends Component {
 		 </div> 
 		)
 	}
-
+	onInputChange(term) {
+		this.setState({term});
+		this.props.onSearchTermChange(term);
+	}
 };
 
 export default SearchBar;
